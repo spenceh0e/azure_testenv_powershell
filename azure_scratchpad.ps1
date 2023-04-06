@@ -28,3 +28,16 @@ function New-JumpboxVM {
         -Size 'Standard_B1s' `
         -Image 'Win2016Datacenter'
 }
+
+
+
+
+
+
+$vnet = @{ 
+    Name = "testenv_vnet"
+    ResourceGroupName = $testenv_rg_name
+    Location = $testenv_location
+    AddressPrefix = $testenv_vnet_prefix
+    Subnet = $vpnSubnet,$jumpboxSubnet,$infraSubnet,$appSubnet
+}
